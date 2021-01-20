@@ -1,5 +1,4 @@
 package fsktm.um.edu.my.mysedekah.login;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
