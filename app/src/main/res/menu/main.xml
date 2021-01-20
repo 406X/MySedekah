@@ -20,7 +20,7 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/search"
+        android:icon="@drawable/search_icon"
         android:title="@string/action_search"
         app:showAsAction="ifRoom"  />
     <item
