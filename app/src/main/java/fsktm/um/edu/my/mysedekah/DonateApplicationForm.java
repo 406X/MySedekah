@@ -24,7 +24,7 @@ public class DonateApplicationForm extends AppCompatActivity {
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.donate_application_form);
 
         //Assign Variable
         applyTitle = findViewById(R.id.apply_title);

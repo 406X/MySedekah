@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import fsktm.um.edu.my.mysedekah.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
+    Button applyDonation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar myToolbar=(Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        applyDonation = findViewById(R.id.button2);
+        applyDonation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openApplyDonation();
+            }
+        });
+    }
+
+    public void openApplyDonation(){
+        Intent goToApply = new Intent(this, DonateApplicationForm.class);
+        startActivity(goToApply);
     }
 
     @Override
@@ -26,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -40,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.action_register:
+                        Intent Reg = new Intent(this, RegisterUser.class);
+                        startActivity(Reg);
                         return true;
 
                     case R.id.action_search:

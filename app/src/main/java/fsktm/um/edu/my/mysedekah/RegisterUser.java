@@ -25,7 +25,7 @@ public class RegisterUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.register);
 
         //Assign Variable
         regTitle = findViewById(R.id.reg_title);
