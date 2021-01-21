@@ -7,14 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-
 import java.util.regex.Pattern;
 
 public class RegisterUser extends AppCompatActivity {
@@ -35,7 +32,7 @@ public class RegisterUser extends AppCompatActivity {
         etName = findViewById(R.id.et_name);
         etMobile = findViewById(R.id.et_mobile);
         etEmail = findViewById(R.id.et_email);
-        etWebsite = findViewById(R.id.et_website);
+//        etWebsite = findViewById(R.id.et_website);
         etPassword = findViewById(R.id.et_password);
         etConfirmPassword = findViewById(R.id.et_confirm_password);
         btSubmit = findViewById(R.id.bt_submit);

@@ -24,4 +24,6 @@
     <string name="invalid_mobile">Please Enter a Valid Number</string>
     <string name="invalid_email">Please Enter a Valid Email</string>
     <string name="invalid_confirm_password">Password does not match</string>
+    <string name="invalid_bank">Please Enter a Valid Bank</string>
+    <string name="invalid_accountNumber">Please Enter a Valid Account Number</string>
 </resources>
