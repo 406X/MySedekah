@@ -4,24 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@android:color/white"
     tools:context=".DonateApplicationForm">
 
-    <TextView
-        android:id="@+id/apply_title"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar_child"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="Apply For Donation"
-        android:textAlignment="center"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:background="#4CAF50"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#4CAF50"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/apply_title"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:padding="10dp"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:text="Apply For Donation"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:background="#4CAF50"/>-->
 
 
     <EditText
@@ -29,7 +39,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply_name"
         android:hint="Name"
-        android:padding="10dp"
+        android:padding="20dp"
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"/>
@@ -39,7 +49,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply_mobile"
         android:hint="Mobile Number"
-        android:padding="10dp"
+        android:padding="20dp"
         android:inputType="phone"
         android:maxLength="10"
         android:layout_marginTop="10dp"
@@ -50,7 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply_email"
         android:hint="Email"
-        android:padding="10dp"
+        android:padding="20dp"
         android:inputType="textEmailAddress"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"/>
@@ -60,7 +70,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply_bank"
         android:hint="Bank Account"
-        android:padding="10dp"
+        android:padding="20dp"
         android:inputType="text"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"/>
@@ -70,8 +80,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply_accountNum"
         android:hint="Account Number"
-        android:padding="10dp"
-        android:inputType="number"
+        android:padding="20dp"
+        android:inputType=""
         android:maxLength="10"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"/>

@@ -35,7 +35,7 @@
         android:layout_width="321dp"
         android:layout_height="63dp"
         android:layout_marginTop="33dp"
-        android:text="Mosque/Musolla"
+        android:text="Donation"
         android:textColor="#FFFFFF"
         app:backgroundTint="#037A08"
         app:layout_constraintEnd_toEndOf="parent"

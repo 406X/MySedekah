@@ -26,4 +26,5 @@
     <string name="invalid_confirm_password">Password does not match</string>
     <string name="invalid_bank">Please Enter a Valid Bank</string>
     <string name="invalid_accountNumber">Please Enter a Valid Account Number</string>
+    <string name="title_activity_donation">DonationActivity</string>
 </resources>

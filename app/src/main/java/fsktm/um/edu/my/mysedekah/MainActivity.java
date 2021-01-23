@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import fsktm.um.edu.my.mysedekah.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button applyDonation;
+    Button applyDonation, Donation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +24,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         applyDonation = findViewById(R.id.button2);
+        Donation = findViewById(R.id.button3);
+
         applyDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openApplyDonation();
+            }
+        });
+
+        Donation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDonation();
             }
         });
     }
@@ -35,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     public void openApplyDonation(){
         Intent goToApply = new Intent(this, DonateApplicationForm.class);
         startActivity(goToApply);
+    }
+
+    public void openDonation(){
+        Intent goToDonation = new Intent(this, DonationActivity.class);
+        startActivity(goToDonation);
     }
 
     @Override

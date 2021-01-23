@@ -1,5 +1,6 @@
 package fsktm.um.edu.my.mysedekah;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -8,7 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
@@ -27,8 +31,18 @@ public class RegisterUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
+        Toolbar myChildToolbar =(Toolbar)findViewById(R.id.my_toolbar_child);
+        setSupportActionBar(myChildToolbar);
+
+        //get a support Action Bar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        //enable the up button
+        ab.setDisplayHomeAsUpEnabled(true);
+
+
         //Assign Variable
-        regTitle = findViewById(R.id.reg_title);
+        //regTitle = findViewById(R.id.reg_title);
         etName = findViewById(R.id.et_name);
         etMobile = findViewById(R.id.et_mobile);
         etEmail = findViewById(R.id.et_email);
@@ -46,7 +60,7 @@ public class RegisterUser extends AppCompatActivity {
 
         //For Mobile Number
         awesomeValidation.addValidation(this,R.id.et_mobile,
-                "[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+                "[0-9]{1}[0-9]{9}$",R.string.invalid_mobile);
 
         // For Email
         awesomeValidation.addValidation(this,R.id.et_email,
@@ -68,13 +82,17 @@ public class RegisterUser extends AppCompatActivity {
                     // On Success
                     Toast.makeText(getApplicationContext(),
                             "Form Validate Succesfully...",Toast.LENGTH_SHORT).show();
+                    openApplyDonation();
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Validation Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
 
-
+    public void openApplyDonation(){
+        Intent goToSubmit = new Intent(this, MainActivity.class);
+        startActivity(goToSubmit);
     }
 }
