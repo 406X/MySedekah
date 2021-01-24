@@ -82,6 +82,7 @@
         android:layout_marginStart="28dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:gravity="center"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/tv_amount"
         app:layout_constraintTop_toTopOf="@+id/tv_amount" />

@@ -3,7 +3,6 @@ package fsktm.um.edu.my.mysedekah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,78 +18,67 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import java.util.regex.Pattern;
 
-public class RegisterUser extends AppCompatActivity {
-    //Initiallize Variable
-    TextView regTitle;
-    EditText etName, etMobile, etEmail, etWebsite, etPassword, etConfirmPassword;
-    Button btSubmit;
+public class DonateApplicationForm extends AppCompatActivity {
 
-    AwesomeValidation awesomeValidation;
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    TextView applyTitle;
+    EditText applyName, applyMobile, applyEmail, applyBank, applyAccountNum, applyDetails;
+    Button applySubmit;
+    AwesomeValidation applyValidation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.donate_application_form);
 
         Toolbar myChildToolbar =(Toolbar)findViewById(R.id.my_toolbar_child);
         setSupportActionBar(myChildToolbar);
 
-        //get a support Action Bar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
 
-        //enable the up button
         ab.setDisplayHomeAsUpEnabled(true);
 
-
         //Assign Variable
-        //regTitle = findViewById(R.id.reg_title);
-        etName = findViewById(R.id.et_name);
-        etMobile = findViewById(R.id.et_mobile);
-        etEmail = findViewById(R.id.et_email);
-//        etWebsite = findViewById(R.id.et_website);
-        etPassword = findViewById(R.id.et_password);
-        etConfirmPassword = findViewById(R.id.et_confirm_password);
-        btSubmit = findViewById(R.id.bt_submit);
+        //applyTitle = findViewById(R.id.apply_title);
+        applyName = findViewById(R.id.apply_name);
+        applyMobile = findViewById(R.id.apply_mobile);
+        applyEmail = findViewById(R.id.apply_email);
+        applyBank = findViewById(R.id.apply_bank);
+        applyAccountNum = findViewById(R.id.apply_accountNum);
+        applyDetails = findViewById(R.id.apply_details);
+        applySubmit = findViewById(R.id.apply_submit);
 
         //Initialize Validation Style
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        applyValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         // Add Validation For Name
-        awesomeValidation.addValidation(this, R.id.et_name,
+        applyValidation.addValidation(this, R.id.apply_name,
                 RegexTemplate.NOT_EMPTY,R.string.invalid_username);
 
         //For Mobile Number
-        awesomeValidation.addValidation(this,R.id.et_mobile,
+        applyValidation.addValidation(this,R.id.apply_mobile,
                 "[0-9]{1}[0-9]{9}$",R.string.invalid_mobile);
 
         // For Email
-        awesomeValidation.addValidation(this,R.id.et_email,
+        applyValidation.addValidation(this,R.id.apply_email,
                 Patterns.EMAIL_ADDRESS,R.string.invalid_email);
 
-        // For Password
-        awesomeValidation.addValidation(this,R.id.et_password,
-                ".{6,}", R.string.invalid_password);
+        // For Bank
+        applyValidation.addValidation(this,R.id.apply_bank,
+                R.id.apply_bank,R.string.invalid_bank);
 
-        // For Confirm Password
-        awesomeValidation.addValidation(this,R.id.et_confirm_password,
-                R.id.et_password,R.string.invalid_confirm_password);
+        // For Bank Account Number
+        applyValidation.addValidation(this,R.id.apply_accountNum,
+                R.id.apply_accountNum,R.string.invalid_accountNumber);
 
-        btSubmit.setOnClickListener(new View.OnClickListener(){
+        // For Details
+        applyValidation.addValidation(this,R.id.apply_details,
+                R.id.apply_details,R.string.invalid_confirm_password);
+
+        applySubmit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Check Validation
-                if(awesomeValidation.validate()){
+                if(applyValidation.validate()){
                     // On Success
                     Toast.makeText(getApplicationContext(),
                             "Form Validate Succesfully...",Toast.LENGTH_SHORT).show();
@@ -107,4 +95,6 @@ public class RegisterUser extends AppCompatActivity {
         Intent goToSubmit = new Intent(this, MainActivity.class);
         startActivity(goToSubmit);
     }
+
+
 }

@@ -6,7 +6,7 @@
     <string name="action_register">Register</string>
     <string name="action_search">Search</string>
     <string name="action_comments">Comments/Feedback</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">User Login</string>
     <string name="title_payment">PaymentActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -21,6 +21,9 @@
     <string name="invalid_mobile">Please Enter a Valid Number</string>
     <string name="invalid_email">Please Enter a Valid Email</string>
     <string name="invalid_confirm_password">Password does not match</string>
+    <string name="invalid_bank">Please Enter a Valid Bank</string>
+    <string name="invalid_accountNumber">Please Enter a Valid Account Number</string>
+    <string name="title_activity_donation">DonationActivity</string>
     <string name="thanks">Thanks for your donation!</string>
     <string name="back">Go Back</string>
     <string name="pay">Pay</string>
