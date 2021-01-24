@@ -10,16 +10,16 @@ import androidx.annotation.Nullable;
 
 public class UserDBHelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "Login.db";
+    public static final String DBNAME = "UserDB.db";
 
     public UserDBHelper( Context context) {
-        super(context, "Login.db", null, 1);
+        super(context, "UserDB.db", null, 1);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table users(username TEXT primary key, name TEXT, email TEXT, hpnum TEXT, password TEXT)");
 
     }
 
@@ -29,11 +29,14 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(String username, String password){
+    public boolean insertData(String username, String name, String email, String hpnum, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("username",username);
-        contentValues.put("password",password);
+        contentValues.put("username", username);
+        contentValues.put("name", name);
+        contentValues.put("email", email);
+        contentValues.put("hpnum", hpnum);
+        contentValues.put("password", password);
         long result = MyDB.insert("users", null, contentValues);
         if(result==-1) return false;
         else

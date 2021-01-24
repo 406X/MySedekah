@@ -16,7 +16,7 @@ import fsktm.um.edu.my.mysedekah.R;
 
 public class UserActivity extends AppCompatActivity {
 
-    EditText username, password, repassword;
+    EditText username, name, email, hpnum, password, repassword;
     Button signup, signin;
     UserDBHelper DB;
 
@@ -34,6 +34,9 @@ public class UserActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         username = findViewById(R.id.username);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        hpnum = findViewById(R.id.hpnum);
         password = findViewById(R.id.password);
         repassword = findViewById(R.id.repassword);
         signup = findViewById(R.id.btnsignup);
@@ -44,16 +47,19 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getText().toString();
+                String nameuser = name.getText().toString();
+                String emailuser = email.getText().toString();
+                String hpuser = hpnum.getText().toString();
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if(user.equals("")|| pass.equals("")|| repass.equals(""))
+                if(user.equals("") || nameuser.equals("") || emailuser.equals("") || hpuser.equals("") || pass.equals("") || repass.equals("") )
                     Toast.makeText(UserActivity.this, "Please enter all this field", Toast.LENGTH_SHORT).show();
                 else{
                     if(pass.equals(repass)){
                         Boolean checkuser = DB.checkusername(user);
                         if(checkuser == false){
-                            Boolean insert = DB.insertData(user, pass);
+                            Boolean insert = DB.insertData(user, nameuser, emailuser, hpuser, pass );
                             if( insert == true){
                                 Toast.makeText(UserActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
