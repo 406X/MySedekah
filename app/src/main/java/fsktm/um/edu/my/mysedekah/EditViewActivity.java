@@ -92,6 +92,7 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                 else{
                     helper.insertcampaign(values);
                 }
+                Toast.makeText(getApplicationContext(), "Saved Changes.", Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             default:
