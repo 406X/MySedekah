@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import fsktm.um.edu.my.mysedekah.login.LoginActivity;
+import fsktm.um.edu.my.mysedekah.user.UserActivity;
+import fsktm.um.edu.my.mysedekah.user.UserLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.action_login:
-                        Intent RLAct = new Intent(this, LoginActivity.class);
+                        Intent RLAct = new Intent(this, UserLoginActivity.class);
                         startActivity(RLAct);
                         return true;
 
                     case R.id.action_register:
+                        Intent intent = new Intent(this, UserActivity.class);
+                        startActivity(intent);
                         return true;
 
                     case R.id.action_search:
