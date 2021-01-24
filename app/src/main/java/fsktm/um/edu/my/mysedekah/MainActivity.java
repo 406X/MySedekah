@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         applyDonation = findViewById(R.id.button2);
-        Donation = findViewById(R.id.button3);
+        Donation = findViewById(R.id.btn_browse);
 
         applyDonation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openDonation(){
-        Intent goToDonation = new Intent(this, DonationActivity.class);
-        startActivity(goToDonation);
+        Intent browse = new Intent(this, CampaignActivity.class);
+        startActivity(browse);
     }
 
     @Override
@@ -89,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
                         Intent test2 = new Intent(this, EditViewActivity.class);
                         startActivity(test2);
                         return true;
-                    case R.id.test_view:
-                        Intent test3 = new Intent(this, CampaignActivity.class);
-                        startActivity(test3);
-                        return true;
                     case R.id.donation_history:
                         Intent test4 = new Intent(this, DonationHistoryActivity.class);
                         startActivity(test4);
@@ -100,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.button2:
                         Intent applyDonation = new Intent(this, DonateApplicationForm.class);
                         startActivity(applyDonation);
-                        return true;                    default:
+                        return true;
+                    default:
                         //if we got here the user action was not recognize
                         // invoke the superclass to handle it
                         return super.onOptionsItemSelected(item);
