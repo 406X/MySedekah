@@ -76,7 +76,7 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
 
                 startActivityForResult(chooserIntent, PICK_IMAGE);
-
+                break;
             case R.id.btn_save:
                 campaignhelper helper = new campaignhelper(this);
                 EditText c_title = findViewById(R.id.ctitle);
@@ -93,6 +93,7 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                     helper.insertcampaign(values);
                 }
                 finish();
+                break;
             default:
                 break;
         }

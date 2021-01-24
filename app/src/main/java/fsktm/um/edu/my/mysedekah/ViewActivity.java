@@ -97,6 +97,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
                 else{
                     Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
                 }
+                break;
             default:
                 break;
         }

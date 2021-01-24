@@ -43,6 +43,7 @@ public class DoneDonateActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case(R.id.btn_back):
                 finish();
+                break;
         }
     }
 }
