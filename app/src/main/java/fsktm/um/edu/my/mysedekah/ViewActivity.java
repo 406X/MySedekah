@@ -2,9 +2,11 @@ package fsktm.um.edu.my.mysedekah;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,9 +40,10 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
 
     public void setLayout(campaigncontent cc){
         TextView title = findViewById(R.id.view_title);
+        title.setTypeface(null, Typeface.BOLD);
         TextView c_desc = findViewById(R.id.tv_description);
         ImageView Imgv = findViewById(R.id.iv_pageimage);
-
+        c_desc.setMovementMethod(new ScrollingMovementMethod());
         c_desc.setText(cc.getDesc());
         title.setText(cc.getTitle());
         Imgv.setImageDrawable(blobToDrawable(cc.getImg()));

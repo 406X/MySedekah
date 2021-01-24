@@ -28,7 +28,7 @@ import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 public class EditViewActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final int PICK_IMAGE = 1;
-    public static String user_id = "100";
+    public static String user_id = "40";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
         pageImage.setOnClickListener(this);
         Button save = findViewById(R.id.btn_save);
         save.setOnClickListener(this);
-
 
         campaignhelper helper = new campaignhelper(this);
         if (helper.checkID(user_id)) {
@@ -89,6 +88,7 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                 else{
                     helper.insertcampaign(values);
                 }
+                finish();
             default:
                 break;
         }
