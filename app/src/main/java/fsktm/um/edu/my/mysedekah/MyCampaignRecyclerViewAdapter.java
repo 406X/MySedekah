@@ -2,6 +2,7 @@ package fsktm.um.edu.my.mysedekah;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class MyCampaignRecyclerViewAdapter extends RecyclerView.Adapter<MyCampai
         holder.mImageView.setImageDrawable(mValues.get(position).img);
         holder.mDesc.setText(mValues.get(position).desc);
         holder.mTitle.setText(mValues.get(position).title);
+        holder.mTitle.setTypeface(null, Typeface.BOLD);
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
