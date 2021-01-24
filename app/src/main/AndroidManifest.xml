@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
+
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <!--
- <meta-data
+        <!-- <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
@@ -30,52 +30,43 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        -->
-        <activity
-            android:name=".user.UserLoginActivity"
-            android:label="User Login"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
-        <activity
-            android:name=".user.UserActivity"
-            android:label="User Registration"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        </activity> -->
 
         <activity
             android:name=".RateActivity"
-            android:parentActivityName=".MainActivity" />
-
-<!--        <activity-->
-<!--            android:name=".login.LoginActivity"-->
-<!--            android:label="@string/title_activity_login"-->
-<!--            android:parentActivityName=".MainActivity">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.PARENT_ACTIVITY"-->
-<!--                android:value=".MainActivity" />-->
-<!--        </activity>-->
-
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".CardActivity"
             android:label="@string/title_payment"
-            android:parentActivityName=".CardActivity" />
+            android:parentActivityName=".CardActivity">
+        </activity>
 
         <activity
             android:name=".EditViewActivity"
             android:label="Modify Campaign"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity">
+
+        </activity>
 
         <activity
             android:name=".CampaignActivity"
             android:label="Browse Campaigns"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity">
+        </activity>
 
         <activity
             android:name=".ViewActivity"
             android:label="View Campaign"
-            android:parentActivityName=".CampaignActivity" />
+            android:parentActivityName=".CampaignActivity">
+        </activity>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -84,6 +75,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

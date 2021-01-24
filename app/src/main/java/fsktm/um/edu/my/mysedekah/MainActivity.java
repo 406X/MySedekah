@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent test3 = new Intent(this, CampaignActivity.class);
                         startActivity(test3);
                         return true;
+                    case R.id.donation_history:
+                        Intent test4 = new Intent(this, DonationHistoryActivity.class);
+                        startActivity(test4);
+                        return true;
                     default:
                         //if we got here the user action was not recognize
                         // invoke the superclass to handle it

@@ -16,6 +16,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 import fsktm.um.edu.my.mysedekah.campaigndb.campaignhelper;
 
@@ -59,9 +63,16 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_donate:
                 EditText amount = findViewById(R.id.editText_amount);
+                TextView title  = findViewById(R.id.view_title);
                 Intent donate= new Intent(this, CardActivity.class);
                 donate.putExtra("amount", amount.getText().toString());
+                donate.putExtra("campaign", title.getText().toString());
+                donate.putExtra("user_id", getIntent().getStringExtra("user_id"));
+                donate.putExtra("campaign_userid", getIntent().getStringExtra("_id"));
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                donate.putExtra("date", date);
                 startActivity(donate);
+                finish();
             default:
                 break;
         }

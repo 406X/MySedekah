@@ -15,16 +15,16 @@ import android.view.ViewGroup;
 import fsktm.um.edu.my.mysedekah.campaignlist.campaignListContent;
 import fsktm.um.edu.my.mysedekah.campaignlist.campaignListItems;
 
-public class CampaignView extends Fragment{
+public class CampaignViewFragment extends Fragment{
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
-    private CampaignView.OnListFragmentInteractionListener mListener;
+    private CampaignViewFragment.OnListFragmentInteractionListener mListener;
 
-    public CampaignView() {
+    public CampaignViewFragment() {
     }
-    public static CampaignView newInstance(int columnCount) {
-        CampaignView fragment = new CampaignView();
+    public static CampaignViewFragment newInstance(int columnCount) {
+        CampaignViewFragment fragment = new CampaignViewFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);

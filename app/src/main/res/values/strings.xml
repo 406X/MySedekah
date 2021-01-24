@@ -21,5 +21,7 @@
     <string name="invalid_mobile">Please Enter a Valid Number</string>
     <string name="invalid_email">Please Enter a Valid Email</string>
     <string name="invalid_confirm_password">Password does not match</string>
+    <string name="thanks">Thanks for your donation!</string>
+    <string name="back">Go Back</string>
     <string name="pay">Pay</string>
 </resources>

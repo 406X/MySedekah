@@ -17,9 +17,9 @@ import java.util.List;
 public class MyCampaignRecyclerViewAdapter extends RecyclerView.Adapter<MyCampaignRecyclerViewAdapter.ViewHolder> {
 
     private final List<campaignListItems> mValues;
-    private final CampaignView.OnListFragmentInteractionListener mListener;
+    private final CampaignViewFragment.OnListFragmentInteractionListener mListener;
 
-    public MyCampaignRecyclerViewAdapter(List<campaignListItems> items, CampaignView.OnListFragmentInteractionListener listener) {
+    public MyCampaignRecyclerViewAdapter(List<campaignListItems> items, CampaignViewFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
