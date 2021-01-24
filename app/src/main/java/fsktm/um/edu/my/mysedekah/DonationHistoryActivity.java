@@ -2,6 +2,7 @@ package fsktm.um.edu.my.mysedekah;
 
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,17 @@ public class DonationHistoryActivity extends AppCompatActivity {
     private DonationHistoryActivity context;
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerView recyclerView;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

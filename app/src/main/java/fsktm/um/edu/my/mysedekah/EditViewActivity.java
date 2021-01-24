@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,17 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
     public static String user_id = "40";
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editview);
@@ -51,14 +63,6 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        return true;
-    }
-
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_pageimage:
@@ -72,7 +76,7 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
 
                 startActivityForResult(chooserIntent, PICK_IMAGE);
-
+                break;
             case R.id.btn_save:
                 campaignhelper helper = new campaignhelper(this);
                 EditText c_title = findViewById(R.id.ctitle);
@@ -88,7 +92,9 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
                 else{
                     helper.insertcampaign(values);
                 }
+                Toast.makeText(getApplicationContext(), "Saved Changes.", Toast.LENGTH_SHORT).show();
                 finish();
+                break;
             default:
                 break;
         }

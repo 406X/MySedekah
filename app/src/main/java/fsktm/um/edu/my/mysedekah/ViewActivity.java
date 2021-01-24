@@ -7,11 +7,13 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -59,20 +61,43 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_donate:
                 EditText amount = findViewById(R.id.editText_amount);
-                TextView title  = findViewById(R.id.view_title);
-                Intent donate= new Intent(this, CardActivity.class);
-                donate.putExtra("amount", amount.getText().toString());
-                donate.putExtra("campaign", title.getText().toString());
-                donate.putExtra("user_id", getIntent().getStringExtra("user_id"));
-                donate.putExtra("campaign_userid", getIntent().getStringExtra("_id"));
-                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                donate.putExtra("date", date);
-                startActivity(donate);
-                finish();
+                String a = amount.getText().toString();
+                if(!a.isEmpty()) {
+                    if(Integer.valueOf(a)>0) {
+                        TextView title = findViewById(R.id.view_title);
+                        Intent donate = new Intent(this, CardActivity.class);
+                        donate.putExtra("amount", amount.getText().toString());
+                        donate.putExtra("campaign", title.getText().toString());
+                        donate.putExtra("user_id", getIntent().getStringExtra("user_id"));
+                        donate.putExtra("campaign_userid", getIntent().getStringExtra("_id"));
+                        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                        donate.putExtra("date", date);
+                        startActivity(donate);
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
+                }
+                break;
             default:
                 break;
         }

@@ -64,6 +64,18 @@
         </activity>
 
         <activity
+            android:name=".DonateApplicationForm"
+            android:label="Donation Application"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".RegisterUser"
+            android:label="User Registration"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
             android:name=".EditViewActivity"
             android:label="Modify Campaign"
             android:parentActivityName=".MainActivity">

@@ -17,7 +17,7 @@
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_browse" />
 
     <Button
         android:id="@+id/button4"
@@ -29,14 +29,14 @@
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_browse" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_browse"
         android:layout_width="321dp"
         android:layout_height="63dp"
         android:layout_marginTop="33dp"
-        android:text="Mosque/Musolla"
+        android:text="Browse Campaigns"
         android:textColor="#FFFFFF"
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
         android:layout_width="321dp"
         android:layout_height="63dp"
         android:layout_marginTop="64dp"
-        android:text="Campaign"
+        android:text="Apply Donation"
         android:textColor="#FFFFFF"
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
