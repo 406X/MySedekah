@@ -62,6 +62,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
                 Intent donate= new Intent(this, CardActivity.class);
                 donate.putExtra("amount", amount.getText().toString());
                 startActivity(donate);
+                finish();
             default:
                 break;
         }

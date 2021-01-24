@@ -11,24 +11,32 @@
         android:id="@+id/pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:layout_weight="1"
         android:backgroundTint="@color/appbar_color"
         android:text="@string/pay"
         android:textColor="#FAF6F6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.braintreepayments.cardform.view.SupportedCardTypesView
+        android:id="@+id/card_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.braintreepayments.cardform.view.CardForm
         android:id="@+id/card_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/card_list"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    </com.braintreepayments.cardform.view.CardForm>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

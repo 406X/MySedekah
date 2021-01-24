@@ -25,7 +25,9 @@ import fsktm.um.edu.my.mysedekah.campaigndb.campaignhelper;
 import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 
 
-public class CampaignActivity extends AppCompatActivity implements CampaignView.OnListFragmentInteractionListener{
+public class CampaignActivity extends AppCompatActivity implements CampaignViewFragment.OnListFragmentInteractionListener{
+
+
 
     private CampaignActivity context;
     private RecyclerView.Adapter recyclerViewAdapter;

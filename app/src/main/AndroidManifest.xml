@@ -67,7 +67,11 @@
             android:label="View Campaign"
             android:parentActivityName=".CampaignActivity">
         </activity>
-
+        <activity
+            android:name=".DoneDonateActivity"
+            android:label="Donation Completed"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
