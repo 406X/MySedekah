@@ -72,6 +72,13 @@
             android:label="Donation Completed"
             android:parentActivityName=".MainActivity">
         </activity>
+        
+        <activity
+            android:name=".DonationHistoryActivity"
+            android:label="Donation History"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

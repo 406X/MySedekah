@@ -28,12 +28,10 @@ import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 public class CampaignActivity extends AppCompatActivity implements CampaignViewFragment.OnListFragmentInteractionListener{
 
 
-
+    public String user_id = "40";
     private CampaignActivity context;
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerView recyclerView;
-    private BroadcastReceiver onComplete;
-    private View progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +49,8 @@ public class CampaignActivity extends AppCompatActivity implements CampaignViewF
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                     DividerItemDecoration.VERTICAL);
             recyclerView.addItemDecoration(dividerItemDecoration);
-        }
-
-            onComplete = new BroadcastReceiver() {
-            public void onReceive(Context context, Intent intent) {
-                String filePath="";
-
-            }
         };
+
         campaignhelper helper = new campaignhelper(this);
         List<campaigncontent> cc = helper.getAllCampaigns();
         campaignListContent.ITEMS.clear();
@@ -99,6 +91,7 @@ public class CampaignActivity extends AppCompatActivity implements CampaignViewF
     public void onListFragmentInteraction(campaignListItems item) {
         Intent viewCampaign= new Intent(this, ViewActivity.class);
         viewCampaign.putExtra("id", item._id);
+        viewCampaign.putExtra("user_id", user_id);
         startActivity(viewCampaign);
     }
 }

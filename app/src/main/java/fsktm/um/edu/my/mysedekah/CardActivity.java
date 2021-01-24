@@ -61,6 +61,11 @@ public class CardActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.pay:
                 if(cardForm.isValid()) {
                     Intent submit = new Intent(this, DoneDonateActivity.class);
+                    submit.putExtra("amount", getIntent().getStringExtra("amount"));
+                    submit.putExtra("campaign", getIntent().getStringExtra("campaign"));
+                    submit.putExtra("date",getIntent().getStringExtra("date"));
+                    submit.putExtra("user_id",getIntent().getStringExtra("user_id"));
+                    submit.putExtra("campaign_userid",getIntent().getStringExtra("campaign_userid"));
                     startActivity(submit);
                     finish();
                 }

@@ -38,6 +38,10 @@
         android:id="@+id/test_view"
         android:title="test_view"
         app:showAsAction="never"  />
+    <item
+        android:id="@+id/donation_history"
+        android:title="Donation History"
+        app:showAsAction="never"  />
 
 
 </menu>
