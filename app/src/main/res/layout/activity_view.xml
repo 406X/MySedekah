@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/appbar_color"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/iv_pageimage"
+        android:layout_width="211dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="340dp"
+        android:layout_height="221dp"
+        android:background="#5C6CE353"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_pageimage"
+        app:layout_constraintVertical_bias="0.374" />
+
+    <TextView
+        android:id="@+id/view_title"
+        android:layout_width="337dp"
+        android:layout_height="45dp"
+        android:background="#8334C823"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/tv_description"
+        app:layout_constraintEnd_toEndOf="@+id/tv_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_description"
+        app:layout_constraintTop_toBottomOf="@+id/iv_pageimage" />
+
+    <Button
+        android:id="@+id/btn_donate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/button_color"
+        android:text="Donate"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/editText_amount"
+        app:layout_constraintTop_toTopOf="@+id/editText_amount" />
+
+    <EditText
+        android:id="@+id/editText_amount"
+        android:layout_width="124dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/tv_amount"
+        app:layout_constraintTop_toTopOf="@+id/tv_amount" />
+
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="84dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="Amount (MYR)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+</androidx.constraintlayout.widget.ConstraintLayout>

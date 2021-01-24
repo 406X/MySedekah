@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //test
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar myToolbar=(Toolbar)findViewById(R.id.my_toolbar);
@@ -49,9 +48,16 @@ public class MainActivity extends AppCompatActivity {
                         Intent RLAct1 = new Intent(this, RateActivity.class);
                         startActivity(RLAct1);
                         return true;
-
                     case R.id.action_favourite:
                         //user choose the favourite item action, mark the current item as a favourite
+                        return true;
+                    case R.id.test_edit:
+                        Intent test2 = new Intent(this, EditViewActivity.class);
+                        startActivity(test2);
+                        return true;
+                    case R.id.test_view:
+                        Intent test3 = new Intent(this, CampaignActivity.class);
+                        startActivity(test3);
                         return true;
                     default:
                         //if we got here the user action was not recognize
@@ -59,4 +65,6 @@ public class MainActivity extends AppCompatActivity {
                         return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

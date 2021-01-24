@@ -29,4 +29,15 @@
         android:title="@string/action_favourite"
         app:showAsAction="ifRoom"  />
 
+    <item
+        android:id="@+id/test_edit"
+        android:title="Modify Campaign"
+        app:showAsAction="never"  />
+
+    <item
+        android:id="@+id/test_view"
+        android:title="test_view"
+        app:showAsAction="never"  />
+
+
 </menu>

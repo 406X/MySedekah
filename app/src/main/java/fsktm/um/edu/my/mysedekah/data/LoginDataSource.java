@@ -3,9 +3,6 @@ package fsktm.um.edu.my.mysedekah.data;
 import fsktm.um.edu.my.mysedekah.data.model.LoggedInUser;
 import java.io.IOException;
 
-/**
- * Class that handles authentication w/ login credentials and retrieves user information.
- */
 public class LoginDataSource {
 
     public Result<LoggedInUser> login(String username, String password) {

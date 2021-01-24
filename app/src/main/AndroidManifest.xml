@@ -3,7 +3,7 @@
     package="fsktm.um.edu.my.mysedekah">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
@@ -42,6 +43,31 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".CardActivity"
+            android:label="@string/title_payment"
+            android:parentActivityName=".CardActivity">
+        </activity>
+
+        <activity
+            android:name=".EditViewActivity"
+            android:label="Modify Campaign"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".CampaignActivity"
+            android:label="Browse Campaigns"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".ViewActivity"
+            android:label="View Campaign"
+            android:parentActivityName=".CampaignActivity">
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,6 +75,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
