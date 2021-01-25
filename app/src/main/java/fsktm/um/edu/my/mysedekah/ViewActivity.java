@@ -77,25 +77,27 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_donate:
                 EditText amount = findViewById(R.id.editText_amount);
                 String a = amount.getText().toString();
-                if(!a.isEmpty()) {
-                    if(Integer.valueOf(a)>0) {
-                        TextView title = findViewById(R.id.view_title);
-                        Intent donate = new Intent(this, CardActivity.class);
-                        donate.putExtra("amount", amount.getText().toString());
-                        donate.putExtra("campaign", title.getText().toString());
-                        donate.putExtra("user_id", getIntent().getStringExtra("user_id"));
-                        donate.putExtra("campaign_userid", getIntent().getStringExtra("_id"));
-                        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                        donate.putExtra("date", date);
-                        startActivity(donate);
-                        finish();
-                    }
-                    else{
+                if(!(getIntent().getStringExtra("user_id")==null)) {
+                    if (!a.isEmpty()) {
+                        if (Integer.valueOf(a) > 0) {
+                            TextView title = findViewById(R.id.view_title);
+                            Intent donate = new Intent(this, CardActivity.class);
+                            donate.putExtra("amount", amount.getText().toString());
+                            donate.putExtra("campaign", title.getText().toString());
+                            donate.putExtra("user_id", getIntent().getStringExtra("user_id"));
+                            donate.putExtra("campaign_userid", getIntent().getStringExtra("_id"));
+                            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                            donate.putExtra("date", date);
+                            startActivity(donate);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
                         Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "The Minimum Donation is RM1", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please Log in to donate", Toast.LENGTH_SHORT).show();
                 }
                 break;
             default:

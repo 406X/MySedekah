@@ -144,6 +144,9 @@ public class userhelper extends SQLiteOpenHelper {
         return user_content;
     }
 
+    public String getNone(){
+        return "None";
+    }
 
     public void deleteUser(String email){
 
