@@ -1,5 +1,6 @@
 package fsktm.um.edu.my.mysedekah;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -9,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,12 +18,19 @@ import androidx.appcompat.widget.Toolbar;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import java.util.regex.Pattern;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import fsktm.um.edu.my.mysedekah.userdb.userhelper;
+import fsktm.um.edu.my.mysedekah.userdb.useritems;
+import fsktm.um.edu.my.mysedekah.userdb.usercontent;
 
 public class RegisterUser extends AppCompatActivity {
     //Initiallize Variable
     TextView regTitle;
     EditText etName, etMobile, etEmail, etWebsite, etPassword, etConfirmPassword;
+    userhelper helper = new userhelper(this);
     Button btSubmit;
 
     AwesomeValidation awesomeValidation;
@@ -91,13 +99,44 @@ public class RegisterUser extends AppCompatActivity {
             public void onClick(View v) {
                 //Check Validation
                 if(awesomeValidation.validate()){
-                    // On Success
-                    Toast.makeText(getApplicationContext(),
-                            "Form Validate Succesfully...",Toast.LENGTH_SHORT).show();
+
+
+                    try {
+                        MessageDigest md = MessageDigest.getInstance("SHA256");
+
+                        EditText pass = findViewById(R.id.et_password);
+                        EditText email = findViewById(R.id.et_email);
+                        EditText phone = findViewById(R.id.et_mobile);
+                        md.update(pass.getText().toString().getBytes());
+
+                        byte messageDigest[] = md.digest();
+
+                        StringBuffer hexString = new StringBuffer();
+                        for (int i=0; i<messageDigest.length; i++)
+                            hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+
+
+
+                        ContentValues cv = new ContentValues();
+                        cv.put(useritems.user.COLUMN_ID, Long.toString(helper.getNextID()));
+                        cv.put(useritems.user.COLUMN_EMAIL, email.getText().toString());
+                        cv.put(useritems.user.COLUMN_PASS, hexString.toString());
+                        cv.put(useritems.user.COLUMN_PHONE, phone.getText().toString());
+                        cv.put(useritems.user.COLUMN_NAME, "Null");
+                        cv.put(useritems.user.COLUMN_BANK, "Null");
+                        cv.put(useritems.user.COLUMN_BANKNUM, "Null");
+                        cv.put(useritems.user.COLUMN_APPLYSTATUS, "Null");
+                        cv.put(useritems.user.COLUMN_ACCTYPE, "Null");
+
+                        helper.insertUser(cv);
+                        helper.checkEmail(email.getText().toString());
+
+                        Toast.makeText(getApplicationContext(),
+                                "Registration Complete, please log in.",Toast.LENGTH_SHORT).show();
+                    } catch (NoSuchAlgorithmException e) {
+                    }
+
                     openApplyDonation();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Validation Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });

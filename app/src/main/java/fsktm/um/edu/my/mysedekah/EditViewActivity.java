@@ -29,7 +29,7 @@ import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 public class EditViewActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final int PICK_IMAGE = 1;
-    public static String user_id = "40";
+    public static String user_id = "";
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -44,8 +44,10 @@ public class EditViewActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editview);
+        user_id = getIntent().getStringExtra("user_id");
         Toolbar myToolbar=(Toolbar)findViewById(R.id.my_toolbar2);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

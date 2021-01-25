@@ -90,6 +90,8 @@ public class campaignhelper extends SQLiteOpenHelper {
             list_campaigns.add(campaign_content);
             cursor.moveToNext();
         }
+        cursor.close();
+        database.close();
         return list_campaigns;
     }
 
@@ -105,6 +107,7 @@ public class campaignhelper extends SQLiteOpenHelper {
         campaign_content.setTitle(cursor.getString(1));
         campaign_content.setDesc(cursor.getString(2));
         campaign_content.setImg(cursor.getBlob(3));
+        database.close();
         return campaign_content;
     }
 

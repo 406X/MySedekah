@@ -28,7 +28,7 @@ import fsktm.um.edu.my.mysedekah.campaigndb.campaigncontent;
 public class CampaignActivity extends AppCompatActivity implements CampaignViewFragment.OnListFragmentInteractionListener{
 
 
-    public String user_id = "40";
+    public String user_id = "";
     private CampaignActivity context;
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerView recyclerView;
@@ -37,6 +37,7 @@ public class CampaignActivity extends AppCompatActivity implements CampaignViewF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listcampaign);
+        user_id = getIntent().getStringExtra("user_id");
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

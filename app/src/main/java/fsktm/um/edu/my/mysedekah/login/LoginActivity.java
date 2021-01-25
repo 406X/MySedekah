@@ -1,5 +1,6 @@
 package fsktm.um.edu.my.mysedekah.login;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,12 +22,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import fsktm.um.edu.my.mysedekah.R;
+import fsktm.um.edu.my.mysedekah.userdb.*;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-
+    private userhelper helper = new userhelper(this);
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -87,10 +92,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
                 }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
+//                setResult(Activity.RESULT_OK);
+//
+//                //Complete and destroy login activity once successful
+//                finish();
             }
         });
 
@@ -131,6 +136,46 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+
+                MessageDigest md = null;
+
+                try {
+                    md = MessageDigest.getInstance("SHA256");
+                    EditText pass = findViewById(R.id.password);
+                    EditText email = findViewById(R.id.username);
+
+                    md.update(pass.getText().toString().getBytes());
+
+                    byte messageDigest[] = md.digest();
+
+                    if(helper.checkEmail(email.getText().toString())) {
+                        usercontent uc = helper.getUser(email.getText().toString());
+                        md.update(pass.getText().toString().getBytes());
+                        StringBuffer hexString = new StringBuffer();
+                        for (int i = 0; i < messageDigest.length; i++)
+                            hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+
+                        if(uc.pass.equals(hexString.toString())){
+                            Intent resultIntent = new Intent();
+
+                            resultIntent.putExtra("user_id", uc._id);
+                            setResult(Activity.RESULT_OK, resultIntent);
+                            Toast.makeText(getApplicationContext(),
+                                    "Login Success.",Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Invalid Credentials2", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (NoSuchAlgorithmException e) {
+                }
+
+
             }
         });
     }

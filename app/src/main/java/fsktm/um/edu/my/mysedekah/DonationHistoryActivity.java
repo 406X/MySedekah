@@ -21,13 +21,14 @@ import fsktm.um.edu.my.mysedekah.donationdb.donationcontent;
 
 public class DonationHistoryActivity extends AppCompatActivity {
 
-    public String user_id = "40";
+    public String user_id = "";
     private DonationHistoryActivity context;
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerView recyclerView;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
         switch (id) {
             case android.R.id.home:
@@ -43,6 +44,7 @@ public class DonationHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donationhistory);
         Toolbar toolbar = findViewById(R.id.my_toolbar);
+        user_id = getIntent().getStringExtra("user_id");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         context = this;
