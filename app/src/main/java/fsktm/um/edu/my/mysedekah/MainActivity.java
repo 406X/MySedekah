@@ -45,12 +45,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openApplyDonation(){
-        Intent goToApply = new Intent(this, DonateApplicationForm.class);
-        startActivity(goToApply);
+        if(!user_id.isEmpty()) {
+            Intent goToApply = new Intent(this, DonateApplicationForm.class);
+            startActivity(goToApply);}
+        else{
+            Toast.makeText(getApplicationContext(),
+                    "Please log in.",Toast.LENGTH_SHORT).show();
+            }
     }
 
     public void openDonation(){
         Intent browse = new Intent(this, CampaignActivity.class);
+        browse.putExtra("user_id",user_id);
         startActivity(browse);
     }
 
@@ -93,12 +99,9 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(RLAct,1);
                         this.invalidateOptionsMenu();
                         return true;
-
                     case R.id.action_register:
                         Intent Reg = new Intent(this, RegisterUser.class);
                         startActivity(Reg);
-                        return true;
-                    case R.id.action_search:
                         return true;
                     case R.id.action_logout:
                         user_id = "";
@@ -110,12 +113,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent RLAct1 = new Intent(this, RateActivity.class);
                         startActivity(RLAct1);
                         return true;
-                    case R.id.action_favourite:
-                        //user choose the favourite item action, mark the current item as a favourite
-                        return true;
+
                     case R.id.test_edit:
                         if(!user_id.isEmpty()) {
                             Intent test2 = new Intent(this, EditViewActivity.class);
+                            test2.putExtra("user_id",user_id);
                             startActivity(test2);
                         }
                         else{

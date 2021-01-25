@@ -6,10 +6,6 @@
         android:title="@string/action_logout"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_register"
-        android:title="@string/action_register"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_comments"
         android:title="@string/action_comments"
         app:showAsAction="never" />
@@ -18,16 +14,6 @@
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/search_icon"
-        android:title="@string/action_search"
-        app:showAsAction="ifRoom"  />
-    <item
-        android:id="@+id/action_favourite"
-        android:icon="@drawable/loveicon"
-        android:title="@string/action_favourite"
-        app:showAsAction="ifRoom"  />
 
     <item
         android:id="@+id/test_edit"
