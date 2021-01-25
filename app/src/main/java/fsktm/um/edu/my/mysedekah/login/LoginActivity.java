@@ -165,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "Invalid Credentials2", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_SHORT).show();
                         }
 
                     }
