@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import fsktm.um.edu.my.mysedekah.login.LoginActivity;
+import fsktm.um.edu.my.mysedekah.user.UserActivity;
+import fsktm.um.edu.my.mysedekah.user.UserLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button applyDonation, Donation;
@@ -66,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.action_login:
-                        Intent RLAct = new Intent(this, LoginActivity.class);
+                        Intent RLAct = new Intent(this, UserLoginActivity.class);
                         startActivity(RLAct);
                         return true;
 
                     case R.id.action_register:
-                        Intent Reg = new Intent(this, RegisterUser.class);
+                        Intent Reg = new Intent(this, UserActivity.class);
                         startActivity(Reg);
                         return true;
 

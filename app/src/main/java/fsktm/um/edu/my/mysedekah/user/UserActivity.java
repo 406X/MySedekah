@@ -19,6 +19,7 @@ public class UserActivity extends AppCompatActivity {
     EditText username, name, email, hpnum, password, repassword;
     Button signup, signin;
     UserDBHelper DB;
+    Integer userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,7 +19,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, name TEXT, email TEXT, hpnum TEXT, password TEXT)");
+        MyDB.execSQL("create Table users(username TEXT primary key , name TEXT, email TEXT, hpnum TEXT, password TEXT)");
 
     }
 
@@ -29,9 +29,10 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(String username, String name, String email, String hpnum, String password){
+    public boolean insertData( String username, String name, String email, String hpnum, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+//        contentValues.put("userID", user_id );
         contentValues.put("username", username);
         contentValues.put("name", name);
         contentValues.put("email", email);
